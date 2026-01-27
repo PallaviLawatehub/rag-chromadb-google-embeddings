@@ -1,5 +1,4 @@
 import chromadb
-from chromadb.config import Settings
 import os
 from dotenv import load_dotenv
 
@@ -8,32 +7,13 @@ load_dotenv()
 
 def get_chroma_client():
     """
-    Connect to ChromaDB Cloud using API credentials.
+    Connect to local ChromaDB instance.
 
     Returns:
         chromadb.Client: ChromaDB client instance.
     """
-    chroma_url = os.getenv("CHROMA_URL")
-    chroma_api_key = os.getenv("CHROMA_API_KEY")
-    chroma_tenant = os.getenv("CHROMA_TENANT")
-    chroma_database = os.getenv("CHROMA_DATABASE")
-
-    if not all([chroma_url, chroma_api_key, chroma_tenant, chroma_database]):
-        raise ValueError("CHROMA_URL, CHROMA_API_KEY, CHROMA_TENANT, and CHROMA_DATABASE must be set in .env")
-
-    # Extract host from URL (remove https://)
-    host = chroma_url.replace("https://", "").replace("http://", "")
-
-    client = chromadb.HttpClient(
-        host=host,
-        port=443,
-        ssl=True,
-        headers={
-            "Authorization": f"Bearer {chroma_api_key}",
-            "tenant": chroma_tenant,
-            "database": chroma_database
-        }
-    )
+    # Use local persistent client
+    client = chromadb.PersistentClient(path="./chroma_db")
     return client
 
 def get_or_create_collection(client, collection_name="rag_documents"):
