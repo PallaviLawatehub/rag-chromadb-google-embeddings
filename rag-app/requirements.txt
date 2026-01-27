@@ -1,0 +1,7 @@
+streamlit
+chroma
+google-genai
+langchain
+pypdf
+python-docx
+python-dotenv
