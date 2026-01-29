@@ -5,12 +5,14 @@ A Retrieval-Augmented Generation (RAG) application built with Streamlit, ChromaD
 ## 🎯 Core Features Implemented
 
 ### 1. Document Upload Interface ✅
+
 - **Drag-and-drop functionality**: Intuitive file upload with drag-and-drop support
 - **Format support**: PDF, TXT, and DOCX files
 - **File display**: Shows uploaded file names for user confirmation
 - **Multiple files**: Support for batch uploading multiple documents
 
 ### 2. Vector Storage & Processing ✅
+
 - **Text extraction**: Extracts text from all supported document formats
   - PDF: Via `pypdf` library
   - TXT: Via UTF-8 decoding
@@ -31,6 +33,7 @@ A Retrieval-Augmented Generation (RAG) application built with Streamlit, ChromaD
   - Fast similarity search
 
 ### 3. Query Interface ✅
+
 - **Text input**: Simple question field
 - **Semantic search**: Retrieves top-3 most relevant chunks
 - **AI response**: Generates contextual answers via Google Gemini
@@ -54,6 +57,7 @@ rag-app/
 ## 🚀 Quick Start
 
 1. **Setup**
+
    ```bash
    cd rag-app
    pip install -r requirements.txt
@@ -62,6 +66,7 @@ rag-app/
    ```
 
 2. **Run**
+
    ```bash
    streamlit run app.py
    ```
@@ -74,6 +79,7 @@ rag-app/
 ## 🔑 Configuration
 
 Create `.env` with:
+
 ```
 GOOGLE_API_KEY=your_api_key_here
 ```
